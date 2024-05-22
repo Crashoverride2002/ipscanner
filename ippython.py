@@ -56,9 +56,6 @@ SSIp = args.ranges.split('-')
 
 ipsplit1 = SSIp[0].split('.')
 ipsplit2 = SSIp[1].split('.')
-#print(ipsplit1)
-#print(ipsplit2)
-#print(args)
 CountResult = 0
 count4 = int(ipsplit2[3]) - int(ipsplit1[3])
 count3 = int(ipsplit2[2]) - int(ipsplit1[2])
@@ -73,7 +70,6 @@ if (count2 > 0):
 if (count1 > 0):
     CountResult *= count1
 print(CountResult)
-ipaddr = "192.168.1.1"
 x1 = range(int(ipsplit1[0]),int(ipsplit2[0]))
 x2 = range(int(ipsplit1[1]),int(ipsplit2[1]))
 x3 = range(int(ipsplit1[2]),int(ipsplit2[2]))
@@ -100,23 +96,31 @@ if count3<=0:
     count4=int(ipsplit1[3])
 
 
-incounter = 0;
+intcounter = 0;
 if valid_ip is None:
     valid_ip = []
 while (incounter < CountResult):
     ipaddr = "{0}.{1}.{2}.{3}".format(count1,count2,count3,count4)
-    if int(count4) >int(ipsplit2[3]):
+    if int(count4) >int(ipsplit1[3]) or int(count4) < int(ipsplit1[3]):
         count4 = int(ipsplit1[3])
         count3 += 1
-    if int(count3) >int(ipsplit2[2]):
+    if int(count3) >int(ipsplit2[2]) or int(count3) < int(ipsplit1[2]):
         count3 = int(ipsplit1[2])
-        count2 += 1;
-    if int(count2) >int(ipsplit2[1]):
+        intcnt = int(count3)
+        intcnt += 1
+        count2 = intcnt;
+    if int(count2) >int(ipsplit2[1] or int(count4) < int(ipsplit1[1])):
         count2 = int(ipsplit1[1])
-        count1 += 1
-    if int(count1) >int(ipsplit2[0]):
+        intcnt = int(count2)
+        intcnt += 1
+        count1 = intcount
+    if int(count1) >int(ipsplit2[0]) or int(count4) < int(ipsplit1[0]):
         count1 = int(ipsplit1[0])
+        
     incounter +=1
+    intcnt = int(count1)
+    intcnt += 1
+    counter1 = intcnt
     
     print("Calc : {0}.{1}.{2}.{3}".format(count1,count2,count3,count4))
     ipaddr = "{0}.{1}.{2}.{3}".format(count1,count2,count3,count4)
